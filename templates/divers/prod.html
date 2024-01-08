@@ -1,0 +1,118 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %} List of trainers {% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{##}
+{#    <div class="container-fluid">#}
+{#        <div class="mb-3 text-primary text-center ">#}
+{#        </div>#}
+{#        <div class="row">#}
+{#            {% for products in products %}#}
+{#                <div class="col-md-4 mb-3">#}
+{#                    <div class="card">#}
+{#                                    <h5 class="card-title">#}
+{##}
+{##}
+{##}
+{#                        <img src="{{ products.logo }}" class="card-img-top" alt="...">#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">{{ products.name }}</h5>#}
+{#                            <p class="card-text">{{ products.price }}</p>#}
+{#                            <a href="#" class="btn btn-primary">adauga in cos</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </div>#}
+{##}
+{##}
+{#            {% endfor %}#}
+{#    </ul>#}
+{##}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+
+{% block title %} List of trainers {% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        {#            <div class="col-md-2">#}
+        {#                <div class="card">#}
+        {#                    <div class="card-header">#}
+        {#                        <h3 class="text-center">Filters</h3>#}
+        {#                    </div>#}
+        {#                    <form method="GET">#}
+        {#                        <div class="card-body">#}
+        {#                            {{ form_filters.as_p }}#}
+        {#                        </div>#}
+        {#                        <div class="card-footer text-center">#}
+        {#                            <button type="submit" class="btn btn-outline-success">Search</button>#}
+        {#                            <a href="{% url 'list-of-trainers' %}" class="btn btn-outline-danger">Reset</a>#}
+        {#                        </div>#}
+        {#                    </form>#}
+        {#                </div>#}
+        {#            </div>#}
+
+
+        <div class="col-md-8">
+            <div class="row">
+                {% for products in products %}
+
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Name: {{ trainer.first_name }} {{ trainer.last_name }}</h5>
+                            <p class="card-text">Course: {{ trainer.course }}</p>
+                            <p class="card-text">Email: {{ trainer.email }}</p>
+                            <p class="card-text">Department:{{ trainer.departament }}</p>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-success dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    More actions
+                                </button>
+                                <ul class="dropdown-menu">
+
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'update-trainer' trainer.id %}">Update</a>
+                                    </li>
+
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'delete-trainer' trainer.id %}">Delete</a>
+                                    </li>
+                                    {% endif %}
+
+                                    <li><a class="dropdown-item"
+                                           href="{% url 'details-trainer' trainer.id %}">View</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

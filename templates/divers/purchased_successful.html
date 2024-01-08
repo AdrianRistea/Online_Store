@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchased Successful{% endblock %}
+
+{% block content %}
+    <div class="container-fluid my-container" style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 my-content">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h2 class="card-title">Purchased Successful</h2>
+                        <p>Your purchase was successful!</p>
+                        <a href="{% url 'product-detail' product.id %}" class="btn btn-primary">Vezi cos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

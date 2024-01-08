@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+<br>
+{% block title %}Contact us{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container mt-4">
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6 offset-md-1">
+                <form action="{% url 'send-email' %}" method="post" name="feedback" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="form-group {% if form.name.errors %}has-error{% endif %}">
+                        <label for="id_name" class="control-label">Name</label>
+                        <input type="text" name="name" class="form-control"
+                               id="id_name"
+                               value="{% if request.method == 'POST' %}{{ request.POST.name }}{% endif %}"/>
+                        {% if form.name.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.name.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p class="help-block">Name is a required field</p>
+                    </div>
+                    <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                        <label for="id_email" class="control-label">E-mail Address</label>
+                        <input class="form-control" type="text" name="email"
+                               id="id_email"
+                               value="{% if request.method == 'POST' %}{{ request.POST.email }}{% endif %}"/>
+                        {% if form.email.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.email.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p class="help-block">A valid e-mail address is required.</p>
+                    </div>
+                    <div class="form-group {% if form.subject.errors %}has-error{% endif %}">
+                        <label for="id_subject" class="control-label">Subject</label>
+                        <input type="text" name="subject" class="form-control"
+                               id="id_subject"
+                               value="{% if request.method == 'POST' %}{{ request.POST.subject }}{% endif %}"/>
+                        {% if form.subject.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.subject.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p class="help-block">Subject should contain at least 3 characters.</p>
+                    </div>
+                    <div class="form-group {% if form.message.errors %}has-error{% endif %}">
+                        <label for="id_message" class="control-label">Message</label>
+                        <textarea name="message" class="form-control" id="id_message" rows="4">
+                            {% if request.method == 'POST' %}{{ request.POST.message }}{% endif %}
+                        </textarea>
+                        {% if form.message.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.message.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p class="help-block">Message should contain at least 10 characters.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-outline-success">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 offset-md-1">
+                <h4>Contact Information</h4>
+                <ul>
+                    <li>Ne puteți găsi la:</li>
+                    <li>Email: contact@onlinestore.com</li>
+                    <li>Phone: +40 727 227 222</li>
+                    <li>Adresa: B-du Dacia, Nr1, Mioveni, Romania</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Buy Product{% endblock %}
+
+{% block content %}
+    <div class="container-fluid my-container" style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Esti sigur ?</h2>
+                        <p class="card-text">Vrei sa adaugi {{ product.name }} in cos?</p>
+                        <h5 class="card-title mb-4" style="font-size: 24px;">Pretul este de {{ product.price }} lei </h5>
+                        <form action="{% url 'process_payment' product.id %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-primary" type="submit">Adauga</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

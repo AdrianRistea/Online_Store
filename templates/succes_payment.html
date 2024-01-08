@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}Mulțumim{% endblock %}
+
+{% block content %}<br><br><br><br><br><br><br>
+    <div class="row">
+        <br><br><br><br><br>
+        <div class="col-md-6 offset-md-4">
+            <h1>Mulțumim pentru comanda!</h1>
+            <p>Produsele vor ajunge la tine in cel mai scurt timp posibil!</p><br><br><br><br><br><br><br>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+    <script>
+        setTimeout(function () {
+            window.location.href = "{% url 'home_page' %}";
+        }, 1000);
+    </script>
+{% endblock %}

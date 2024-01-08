@@ -1,0 +1,15 @@
+{#{% if request.user.is_authenticated %}#}
+{#    {% if item in request.user.favorite_set.all %}#}
+        <form action="{% url 'remove_favorite' product_id= product_id  %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Remove from Favorites</button>
+        </form>
+{#    {% else %}#}
+        <form action="{% url 'add_favorite' product_id= product_id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to Favorites</button>
+        </form>
+{#    {% endif %}#}
+{#{% else %}#}
+    <p>Login to add this item to your favorites.</p>
+{#{% endif %}#}
