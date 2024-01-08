@@ -1,0 +1,18 @@
+
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    margin-right: 10px;
+}
+
+/* Stilizarea butoanelor */
+.btn {
+    margin-right: 10px;
+}
+
+.btn-outline-danger.ml-2 {
+    margin-left: 10px;
+}

@@ -1,0 +1,20 @@
+.product-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    flex: 1;
+    padding: 1rem;
+}
+
+.product-details {
+    flex: 1;
+    padding: 1rem;
+}

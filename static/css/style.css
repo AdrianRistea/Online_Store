@@ -1,0 +1,47 @@
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.minus-button,
+.plus-button {
+    background-color: #ff6b6b;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.minus-button:hover,
+.plus-button:hover {
+    background-color: #ff4c4c;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.red-text {
+    color: red;
+}
+
+.admin-buttons {
+    margin-top: 10px;
+}
+
+.navbar-right {
+    margin-left: auto;
+}
